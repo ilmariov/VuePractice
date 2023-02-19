@@ -19,9 +19,9 @@
 <body>
     <div id="app" v-cloak>
         {{ greeting }}
-        <input @keyup.enter="greet" v-model="greeting">
+        <input @keyup.enter="greet(greeting + '!!!!!!!')" v-model="greeting">
         <hr>
-        <button @click="toggleBox">Toggle Box</button>
+        <button @click.right="toggleBox">Toggle Box</button>
         <div v-if="isVisible" class="box"></div>
     </div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -38,8 +38,8 @@
                 toggleBox() {
                     this.isVisible = !this.isVisible
                 },
-                greet() {
-                    console.log(this.greeting)
+                greet(greeting) {
+                    console.log(greeting)
                 }
             },
         })
